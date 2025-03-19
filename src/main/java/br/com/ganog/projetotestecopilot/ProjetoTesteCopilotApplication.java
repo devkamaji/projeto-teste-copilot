@@ -1,4 +1,4 @@
-package br.com.ganog.projeto_teste_copilot;
+package br.com.ganog.projetotestecopilot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

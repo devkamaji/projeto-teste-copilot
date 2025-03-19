@@ -1,4 +1,4 @@
-package br.com.ganog.projeto_teste_copilot.port;
+package br.com.ganog.projetotestecopilot.port;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

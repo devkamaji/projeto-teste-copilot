@@ -1,8 +1,7 @@
-package br.com.ganog.projeto_teste_copilot.controller;
+package br.com.ganog.projetotestecopilot.controller;
 
-import br.com.ganog.projeto_teste_copilot.controller.dto.ImagemPadrao;
-import br.com.ganog.projeto_teste_copilot.port.ClientePokeApi;
-import com.fasterxml.jackson.databind.JsonNode;
+import br.com.ganog.projetotestecopilot.controller.dto.ImagemPadrao;
+import br.com.ganog.projetotestecopilot.port.ClientePokeApi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +30,7 @@ public class ControladorPokemon {
         try {
             final var root = objectMapper.readTree(response.getBody());
             final var urlImagem = root.path("sprites").path("front_default").asText();
-            final var imagemResponse = new ImagemPadrao(urlImagem);
-            return ok(imagemResponse);
+            return ok(new ImagemPadrao(urlImagem));
         } catch (Exception e) {
             return status(500).body("Erro ao processar a resposta da API");
         }

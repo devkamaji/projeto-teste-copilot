@@ -1,4 +1,4 @@
-package br.com.ganog.projeto_teste_copilot;
+package br.com.ganog.projetotestecopilot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
