@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import static org.springframework.http.ResponseEntity.*;
+
 @RestController
 @RequiredArgsConstructor
 public class ControladorPokemon {
@@ -24,15 +26,15 @@ public class ControladorPokemon {
      * @return ResponseEntity contendo a URL da imagem ou uma mensagem de erro
      */
     @GetMapping("/pokemon/{nome}")
-    public ResponseEntity<?> obterPokemon(@PathVariable String nome) {
-        ResponseEntity<String> response = clientePokeApi.obterPokemonPorNome(nome);
+    public ResponseEntity<?> obterImagemPokemon(@PathVariable String nome) {
+        final var response = clientePokeApi.obterPokemonPorNome(nome);
         try {
-            JsonNode root = objectMapper.readTree(response.getBody());
-            String frontDefault = root.path("sprites").path("front_default").asText();
-            ImagemPadrao imagemResponse = new ImagemPadrao(frontDefault);
-            return ResponseEntity.ok(imagemResponse);
+            final var root = objectMapper.readTree(response.getBody());
+            final var urlImagem = root.path("sprites").path("front_default").asText();
+            final var imagemResponse = new ImagemPadrao(urlImagem);
+            return ok(imagemResponse);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erro ao processar a resposta da API");
+            return status(500).body("Erro ao processar a resposta da API");
         }
     }
 }

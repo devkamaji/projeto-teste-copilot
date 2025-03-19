@@ -10,9 +10,10 @@ Você deve seguir as instruções abaixo para garantir que o código gerado aten
 
 - Use nomes claros e descritivos de variável e funções
 - Nunca utilize @Autowired
-- Sempre utilize @Lombok se possivel para construtores, getters e setters
+- Sempre utilize @Lombok se possivel para construtores
 - Sempre Utilize DTO (Data Transfer Object) para transferir dados entre processos
 - Sempre utilize record para criar Objetos imutáveis
+- Sempre utilize var para inferência de tipo local
 - Escreva testes de unidade para funcionalidade principal
 - Manter funções focadas e gerenciáveis (geralmente abaixo de 50 linhas)
 - Use padrões de manuseio de erros de forma consistente
